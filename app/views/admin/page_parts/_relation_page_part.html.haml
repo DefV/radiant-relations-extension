@@ -1,0 +1,11 @@
+.part.relations
+  - @page && @page.related_pages.each do |page|
+    .selector-row
+      .remove-row
+      = select_tag "page[parts_attributes][#{page_part_counter}][related_page_ids][]", relation_options(:selected => page.id)
+  .selector-row
+    .remove-row
+    = select_tag "page[parts_attributes][#{page_part_counter}][related_page_ids][]", relation_options
+  %p
+    %a{:href=>"#",:class=>'add-row'}
+      = t('.add_row')
